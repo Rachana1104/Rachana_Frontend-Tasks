@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <marquee>Routine Manager</marquee>
+    </h1>
+    <div style="overflow-x: auto;" id="task">
+        <table>
+            <tr>
+                <th>Task name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Is it compulsory?(yes/no)</th>
+            </tr>
+            <tr>
+                <td> Online Classes</td>
+                <td>31-07-2021</td>
+                <td>9:00 - 13:00</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Assignments</td>
+                <td>31-07-2021</td>
+                <td>14:00 - 17:00</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Walk</td>
+                <td>31-07-2021</td>
+                <td>17:30 - 18:00</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Yoga</td>
+                <td>31-07-2021</td>
+                <td>18:00 - 18:30</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Talk With Friends</td>
+                <td>31-07-2021</td>
+                <td>18:30 - 19:00</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Daily Revision</td>
+                <td>31-07-2021</td>
+                <td>19:30 - 20:30</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Watching Telivision</td>
+                <td>31-07-2021</td>
+                <td>20:30 - 21:30</td>
+                <td>No</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var table = document.getElementById('task');
+        var cells = document.getElementsByTagName('td');
+
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].onclick = function() {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'text');
+                input.value = this.innerHTML;
+                input.style.width = this.offsetwidth - (this.clientLeft * 2) + "px";
+                input.style.textAlign = "inherit";
+                input.style.fontSize = "inherit";
+
+                this.innerHTML = '';
+                this.append(input);
+                this.firstElementChild.select();
+            }
+        }
+    </script>
+</body>
+
+</html>
