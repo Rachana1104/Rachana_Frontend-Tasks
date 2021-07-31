@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register Now</title>
+    <style>
+        .in {
+            display: inline-block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+        }
+        
+        .in:hover input~.checkmark {
+            background-color: #18cfb1;
+        }
+        
+        .in input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .in input:checked~.checkmark:after {
+            display: block;
+        }
+        
+        .in .checkmark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #ae1eda;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            width: 25%;
+        }
+        
+        .button:hover {
+            background-color: #47054d
+        }
+        
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <script type="text/javascript">
+            function search() {
+                var rd1 = document.getElementById("rd1");
+                var rd2 = document.getElementById("rd2");
+                var rd3 = document.getElementById("rd3");
+                var rd4 = document.getElementById("rd4");
+            }
+            src = "./script.js"
+        </script>
+        <br><br><br>
+        <p>
+            <font size=3 color="black">
+                Age:
+            </font>
+        </p>
+        <input class="in" id="rd1" name="grp1" type="radio" value="18+"><span class="checkmark"></span>18+</input>
+        <input class="in" id="rd2" name="grp1" type="radio" value="45+"><span class="checkmark"></span>45+</input><br>
+        <p>
+            <font size=3 color="black">
+                Cost:
+            </font>
+        </p>
+        <input class="in" id="rd3" name="grp2" type="radio" value="Free"><span class="checkmark"></span>Free</input>
+        <input class="in" id="rd4" name="grp2" type="radio" value="Paid"><span class="checkmark"></span>Paid</input><br>
+        <button class="button" id="searchbtn">Search</button>
+
+</body>
+
+</html>

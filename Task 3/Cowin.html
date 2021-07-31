@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cowin</title>
+
+
+    <style>
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #0c0a86;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 15px;
+            width: 300px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .switch {
+            line-height: 25px;
+            width: 100px;
+            font-size: 13pt;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-top: 1px;
+            margin-right: 2px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        input[type=number],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <center>
+        <p>
+            <font size=8 color="red">
+                The only way to fight Covid-19 is through vaccination</p>
+        <p>
+            <font size=6 color="dark green">
+                Let's make India stronger to fight against Covid-19
+        </p>
+        <p>
+            <font size=5 color="#20e261">
+                Check Your Nearest Vaccination Center And Slots Availability
+        </p>
+        <img src="file:///C:/Users/rachana/Downloads/vaccination%20img.jpg" style="width:400px;height:400px;" class="responsive"></img>
+
+        <form onsubmit="cowinData() ">
+
+            <input type="number" placeholder="Enter the pin" required><br><br>
+            <button class="button" type="submit" vertical-align:middle " <span>Search</span></button>
+        <br>
+    </form>
+    <button class="switch " onclick="myFunction() ">Switch Mode</button>
+        
+</center>        
+</body>
+
+</html>
