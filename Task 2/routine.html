@@ -2,105 +2,83 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        td {
-            border: 1px solid #dddddd;
-            text-align: center;
-            padding: 8px;
-        }
-        
-        th {
-            border: 1px solid #dddddd;
-            text-align: center;
-            padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine Manager</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="routine.css">
 </head>
 
 <body>
+
     <h1>
         <marquee>Routine Manager</marquee>
     </h1>
-    <div style="overflow-x: auto;" id="task">
-        <table>
-            <tr>
-                <th>Task name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Is it compulsory?(yes/no)</th>
-            </tr>
-            <tr>
-                <td> Online Classes</td>
-                <td>31-07-2021</td>
-                <td>9:00 - 13:00</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Assignments</td>
-                <td>31-07-2021</td>
-                <td>14:00 - 17:00</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Walk</td>
-                <td>31-07-2021</td>
-                <td>17:30 - 18:00</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Yoga</td>
-                <td>31-07-2021</td>
-                <td>18:00 - 18:30</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Talk With Friends</td>
-                <td>31-07-2021</td>
-                <td>18:30 - 19:00</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Daily Revision</td>
-                <td>31-07-2021</td>
-                <td>19:30 - 20:30</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Watching Telivision</td>
-                <td>31-07-2021</td>
-                <td>20:30 - 21:30</td>
-                <td>No</td>
-            </tr>
-        </table>
+    <div class="container">
+        <div class="addTask">
+            <input type="text" placeholder="Add a Task">
+            <button>+</button>
+        </div>
+        <ol class="notCompleted">
+            <h3>Not Completed</h3>
+
+        </ol>
+        <ol class="Completed">
+            <h3>Completed</h3>
+
+        </ol>
     </div>
+
     <script>
-        var table = document.getElementById('task');
-        var cells = document.getElementsByTagName('td');
+        const input = document.querySelector('input');
+        const btn = document.querySelector('.addTask > button');
 
-        for (var i = 0; i < cells.length; i++) {
-            cells[i].onclick = function() {
-                var input = document.createElement('input');
-                input.setAttribute('type', 'text');
-                input.value = this.innerHTML;
-                input.style.width = this.offsetwidth - (this.clientLeft * 2) + "px";
-                input.style.textAlign = "inherit";
-                input.style.fontSize = "inherit";
+        btn.addEventListener('click', addList);
+        input.addEventListener('keyup', (e) => {
+            (e.keyCode === 13 ? addList(e) : null);
+        })
 
-                this.innerHTML = '';
-                this.append(input);
-                this.firstElementChild.select();
+        function addList(e) {
+            const notCompleted = document.querySelector('.notCompleted');
+            const Completed = document.querySelector('.Completed');
+
+            const newLi = document.createElement('li');
+            const checkBtn = document.createElement('button');
+            const delBtn = document.createElement('button');
+            const editBtn = document.createElement('button');
+
+            checkBtn.innerHTML = '<i class="fa fa-check"></i>';
+            delBtn.innerHTML = '<i class="fa fa-trash"></i>';
+            editBtn.innerHTML = '<i class="fa fa-edit"></i>';
+
+            if (input.value.trim() == "") {
+                alert("Blank Task");
+            } else if (input.value !== '') {
+                newLi.textContent = input.value;
+                input.value = '';
+                notCompleted.appendChild(newLi);
+                newLi.appendChild(checkBtn);
+                newLi.appendChild(delBtn);
+                newLi.appendChild(editBtn);
+            } else {
+                alert("Please enter valid task");
             }
+
+            checkBtn.addEventListener('click', function() {
+                const parent = this.parentNode;
+                parent.remove();
+                Completed.appendChild(parent);
+                checkBtn.style.display = 'none';
+            });
+
+            delBtn.addEventListener('click', function() {
+                const parent = this.parentNode;
+                parent.remove();
+            });
+
+            editBtn.addEventListener('click', function() {
+                const parent = this.parentNode;
+                parent.contentEditable = true;
+            });
         }
     </script>
 </body>
