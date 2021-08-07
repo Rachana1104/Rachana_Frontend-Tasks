@@ -10,12 +10,12 @@ y = today.getFullYear();
 today = `${d}-${m}-${y}`;
 
 function cowinData(pincode) {
-    let url = `http://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${today}`;
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.onload = function() {
-                    if (this.status === 200) {
-                        let data = JSON.parse(this.responseText);
+    const url = `http://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${today}`;
+    fetch(url).then((response) => {
+            return response.text();
+        })
+        .then((data) => {
+            let call = JSON.parse(data);
                         
                         if (data.sessions !== []) {
                             data.sessions.map((e, i) => {
@@ -79,18 +79,16 @@ function cowinData(pincode) {
                </div>`;
                                 cards.innerHTML += code;
                             });
-
+                            
                             if (data.sessions.length === 0) {
                                 alert("No Vaccinations Available")
                             }
                             centers = []
                         }
-                            } else {
+                             else {
             alert("Some error occured")
         }
-    };
-
-    xhr.send();
+    })
 }
 
 function repeat() {
