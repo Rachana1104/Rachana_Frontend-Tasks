@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://biorender.com/img/covid/vaccine.png" />
+    <title>Cowin</title>
+    
+    <style>
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        
+        .switch {
+            line-height: 25px;
+            width: 100px;
+            font-size: 13pt;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-top: 1px;
+            margin-right: 2px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <p>
+            <font size=8 color="#b350d1">
+                The only way to fight Covid-19 is through vaccination</p><br>
+        <p>
+            <font size=6 color="orange">
+                Let's make India stronger to fight against Covid-19
+        </p><br>
+        <div class="searchBox">
+            <input type="text" placeholder="Enter pincode" id="input" />
+            <button>
+        <img
+          src="https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png"
+          alt="search"
+        />
+      </button>
+        </div>
+
+
+        <div class="cards"></div>
+
+        <div class="opening">
+            <h1>
+                <font color="red">
+                    <marquee>Check Your Nearest Vaccination Center And Slots Availability</marquee>
+            </h1>
+            <img src="file:///C:/Users/rachana/Downloads/vaccination%20img.jpg" style="width:400px;height:400px;" class="responsive" alt="">
+        </div>
+
+    <button class="switch " onclick="myFunction() ">Switch Mode</button>
+    <script src="./script.js"></script>    
+</center>        
+</body>
+
+</html>
