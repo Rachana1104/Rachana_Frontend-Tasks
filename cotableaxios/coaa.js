@@ -9,6 +9,7 @@ axios.get("https://corona-virus-world-and-india-data.p.rapidapi.com/api", {
         console.log(response.data);
 
         if (response.data.countries_stat.length >= 0) {
+
             var temp = "";
             response.data.countries_stat.forEach(u => {
                 temp += "<tr>";
