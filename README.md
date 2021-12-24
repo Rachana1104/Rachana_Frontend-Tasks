@@ -1,2 +1,3 @@
 # Rachana_Frontend-Tasks
-Frontend Tasks are quite interesting 
+My first task for unicode interview
+Done entirely using Html, Css and Basic JavaScript.
